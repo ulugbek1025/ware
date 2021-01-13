@@ -1,0 +1,20 @@
+{% extends 'registration/base.html' %}
+{% block page_header %}
+<div style="display:ruby;">
+<p>{{all_categoriess}} </p> 
+<a class="btn btn-primary" href="{% url 'product:add_categories2' %}">Add Categories </a>
+</div>
+<div>
+{% for categories1  in   categories %}
+ <div class="card" style="width: 18rem; display: inline-block; ">
+    <div class="card-body">
+      <h5 class="card-title">{{  categories1 }}</h5>
+    
+      <a href="{% url 'product:product' categories1.id %}" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+  {% empty %}
+  <p> no categories </p>
+  {% endfor %}
+ 
+    {% endblock page_header %}

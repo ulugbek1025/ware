@@ -1,0 +1,10 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+<p> Add user </p>
+  <form action="{% url 'user:add_user' %}" method="POST" >
+{% csrf_token %}
+{{ form.as_p }}
+<button  name="submit"  > Add user </button>
+<input type="hidden" name="hidden" value="{% url 'user:user_home' %}"/>
+  </form>
+{% endblock content %}

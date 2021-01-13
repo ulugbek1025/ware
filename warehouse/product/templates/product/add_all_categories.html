@@ -1,0 +1,10 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+<p> Add a new all categories  </p>
+<form action="{% url 'product:add_categories' %}" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button name="submit" >Add categories  </button>
+
+</form>
+{% endblock content %}

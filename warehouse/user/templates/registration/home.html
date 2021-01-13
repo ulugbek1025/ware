@@ -1,0 +1,15 @@
+{% extends 'registration/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<h4 style="padding: 20px 20px 20px 450px;"> Welcome, {{ user.username }}</h4>
+
+ <a style="padding: 50px 50px 50px 50px;margin:0 0 10px 10px;" href="{% url 'product:product_home' %}" class="btn btn-primary d-block"><h1 >Product</h1> </a>
+ <a style="padding: 50px 50px 50px 50px ;margin:0 0 10px 10px; " href="{% url 'user:home' %}" class="btn btn-primary  d-block"><h1>Order</h1> </a>
+ 
+ {% if  request.user.is_superuser %} 
+ <a style="padding: 50px 50px 50px 50px; margin:0 0 10px 10px;" href="{% url 'user:user_home' %}" class="btn btn-primary  d-block"> <h1> User </h1></a>
+ {% else %}
+ <a style="padding: 50px 50px 50px 50px; margin:0 0 10px 10px;" href="#" class="btn btn-danger  d-block"> <h1> User </h1></a>
+ {% endif %} 
+{% endblock content %}
+

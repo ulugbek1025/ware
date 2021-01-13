@@ -1,0 +1,22 @@
+{% extends 'registration/base.html' %}
+{% block page_header %}
+{% for all_categoriess  in   all_categories %}
+ 
+    
+  
+  <div class="card" style="width: 18rem; display: inline-block; ">
+    <div class="card-body">
+      <h5 class="card-title">{{  all_categoriess }}</h5>
+      <p class="card-text">{{all_categoriess.status }}</p>
+      <a href="{% url 'product:update' all_categoriess.id %}" class="btn btn-primary">update</a>
+      
+      
+        
+      <a href="{% url 'product:categories' all_categoriess.id %}" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+  {% endfor %}
+    {% endblock page_header %}
+    {% block content %}
+    <a href="{% url 'product:add_categories' %}" class="btn btn-primary">Add categories </a>
+    {% endblock content %}

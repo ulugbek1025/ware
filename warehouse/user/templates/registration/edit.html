@@ -1,0 +1,9 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+<form action="{% url 'user:edituser' user.id  %}" method="POST" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <a class="btn btn-primary" href="{% url 'user:user_home' %}" >back</a>
+    <input class="btn btn-primary " type="submit" name='next' >
+</form>
+{% endblock content %}

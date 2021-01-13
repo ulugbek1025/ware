@@ -1,0 +1,16 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+  
+
+            <p> Are you sure want to delete "{{item}}" </p>
+            <form action="{%  url 'user:delete_user' item.id %}" method="POST" >
+            {% csrf_token %}
+            <a href="{% url 'user:user_home' %}" class="btn btn-primary"  > Cancel </a>
+            
+            <button name="submit" class="btn btn-primary" >Delete</button>
+        
+            <input type="hidden" name="next"
+               value="{% url 'user:user_home' %}" />
+               
+            </form>
+{% endblock content %}
